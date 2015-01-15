@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JPromise</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<style type="text/css">
+body,div,canvas,img{
+    margin:0;
+    padding:0;
+    border:0;
+}
+html,body{
+    height:100%;
+}
+#wrap{
+    min-height:100%;
+    position:relative;
+}
+.dot{
+    background:red;
+    border-radius:100%;
+    width:30px;
+    height:30px;
+}
+#dot1{
+    -webkit-animation:fly 1s linear alternate infinite;
+    -moz-animation:fly 1s linear alternate infinite;
+    animation:fly 1s linear alternate infinite;
+}
+#dot3{
+    width:60px;
+    height:60px;
+    margin:30px;
+}
+@media (min-width:100px){
+@-webkit-keyframes x1-spin{
+    from {width:100px;}
+}
+@-moz-keyframes x1-spin{
+    from {width:100px;}
+}
+@keyframes x1-spin{
+    from {width:100px;}
+}
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+    <h1>示例一 普通用法，js生成动画，css通过animation属性调用</h1>
+    <div class="dot" id="dot1"style=""></div>
+    <pre id="pre1">
+    代码部分：
+        css: #dot1{
+                -webkit-animation:fly 1s linear alternate infinite;
+                -moz-animation:fly 1s linear alternate infinite;
+                animation:fly 1s linear alternate infinite;
+            }
+
+        js: new JS2CSSKeyframes('fly',{
+                from:'transform:translate(0,0)',
+                to:'transform:translate(100px,0)'
+            });
+
+    等同于 new JS2CSSKeyframes('fly',['transform:translate(0,0)','transform:translate(100px,0)']);
+    </pre>
+    <h1>示例二 通过js添加匿名动画</h1>
+    <div class="dot" id="dot2"></div>
+    <pre id="pre2">
+    代码部分：document.querySelector('#dot1').style.cssText=JS2CSSKeyframes.vendor+'animation:'+JS2CSSKeyframes([
+                    'transform:translate(0,0)',
+                    'transform:translate(100px,0)'
+                ]).name+' 1s linear alternate infinite';
+
+        或者：document.querySelector('#dot1').style[JS2CSSKeyframes.animation]=JS2CSSKeyframes([
+                    'transform:translate(0,0)',
+                    'transform:translate(100px,0)'
+                ]).name+' 1s linear alternate infinite';
+    </pre>
+
+    <h1>示例三 通过JS2CSSKeyframes生成复杂多帧复杂动画</h1>
+    <div class="dot" id="dot3"></div>
+    <pre id="pre3">
+    代码部分：var kfs=[],num=100,rand=function(f,t){return Math.random()*t+f}
+                while(num){
+                    kfs.push({transform:'scale('+rand(0,2)+')',background:'rgba('+parseInt(255*Math.random())+','+parseInt(255*Math.random())+','+parseInt(255*Math.random())+','+Math.random()+')'});
+                    num--;
+                }
+                document.querySelector('#dot3').style[JS2CSSKeyframes.animation]=JS2CSSKeyframes(kfs).name+' 60s linear alternate infinite';
+    </pre>
+</div>
+<script type="text/javascript" src="src/j2ckf.js"></script>
+<script type="text/javascript">
+var fly=new JS2CSSKeyframes('fly',{
+    from:'transform:translate(0,0)',
+    to:'transform:translate(100px,0)'
+});
+document.querySelector('#pre1').appendChild(document.createTextNode('\n\nkeyframe内容：\n\n'+fly.cssText));
+
+var ani1;
+document.querySelector('#dot2').style.cssText=JS2CSSKeyframes.vendor+'animation:'+(ani1=JS2CSSKeyframes(['transform:translate(0,0)','transform:translate(100px,0)'])).name+' 1s linear alternate infinite';
+document.querySelector('#pre2').appendChild(document.createTextNode('\n\nkeyframe内容：\n\n'+ani1.cssText));
+
+var ani2,kfs=[],num=100,rand=function(f,t){return Math.random()*t+f}
+while(num){
+    kfs.push({transform:'translate('+(100-num)*5+'px,0)',background:'rgba('+parseInt(255*Math.random())+','+parseInt(255*Math.random())+','+parseInt(255*Math.random())+','+Math.random()+')'});
+    num--;
+}
+document.querySelector('#dot3').style[JS2CSSKeyframes.animation]=(ani2=JS2CSSKeyframes(kfs)).name+' 30s linear alternate infinite';
+document.querySelector('#pre3').appendChild(document.createTextNode('\n\nkeyframe内容：\n\n'+ani2.cssText));
+</script>
+</body>
+</html>
