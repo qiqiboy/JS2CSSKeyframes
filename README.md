@@ -120,4 +120,4 @@ JS2CSSKeyframes.support //Boolean 是否支持css动画，不支持css3动画的
 ````
 
 ## DEMO 
-http://u.boy.im/sketch/css3keyframes
+http://u.boy.im/css3keyframes
