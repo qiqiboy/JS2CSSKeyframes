@@ -121,5 +121,10 @@ JS2CSSKeyframes.support //Boolean 是否支持css动画，不支持css3动画的
 
 ````
 
+## css3-animation.js 
+基于JS2CSSKeyframes生成常用css3动画类  
+具体见css3-animation.js内容  
+将css3-animation.js引入页面中，即可在css中使用 flyTop flyLeft fadeIn scaleIn 等简单动画类
+
 ## DEMO 
 http://u.boy.im/css3keyframes
