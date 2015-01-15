@@ -12,9 +12,9 @@ JS2CSSKeyframes就是解决这个问题的，它可以自动根据不同浏览�
 例如：new JS2CSSKeyframes("test", {from:{transform:'translate(0,0);'},to:{transform:'translate(100px,100px);'}}); 
 
 在不同浏览器下将会生成以下三种之一  
-*@-webkit-keyframes test { from { -webkit-transform:translate(0,0) } to { -webkit-transform:translate(100px,100px) } }  
-*@-moz-keyframes test { from { -moz-transform:translate(0,0) } to { -moz-transform:translate(100px,100px) } }   
-*@keyframes test { from { transform:translate(0,0) } to { transform:translate(100px,100px) } }   
+* @-webkit-keyframes test { from { -webkit-transform:translate(0,0) } to { -webkit-transform:translate(100px,100px) } }  
+* @-moz-keyframes test { from { -moz-transform:translate(0,0) } to { -moz-transform:translate(100px,100px) } }   
+* @keyframes test { from { transform:translate(0,0) } to { transform:translate(100px,100px) } }   
 
 
 ## 如何使用
