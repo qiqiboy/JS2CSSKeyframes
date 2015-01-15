@@ -20,15 +20,7 @@ JS2CSSKeyframes就是解决这个问题的，它可以自动根据不同浏览�
 ## 如何使用
 ```javascript
 
-// @Class JS2CSSKeyframes
-// @param String name
-// @param Object config 初始画板配置
-//                      .width int 画板宽度
-//                      .height int 画板高度
-//                      .lineWidth int 笔画宽度
-//                      .color 笔画颜色
-//                      .bgcolor 背景颜色
-/* @description 
+/* @description 创建css3动画
  * @Class JS2CSSKeyframes
  * @param String name 名称，可省略该参数，name将随机生成
  * @param String|Object|Array config 动画帧设定
@@ -47,14 +39,14 @@ JS2CSSKeyframes就是解决这个问题的，它可以自动根据不同浏览�
  */
 
 //用法一
-new JS2CSSKeyframes('ani_1',{
+ani=new JS2CSSKeyframes('ani_1',{
     '0%':{width:0,height:0},
     '50%':{width:'100px',height:'100%'},
     '100%':{width:0,height:0}
 });
 
 //用法二
-new JS2CSSKeyframes('ani_1',{
+ani=new JS2CSSKeyframes('ani_1',{
     '0%':'width:0;height:0',
     '50%':'width:100px;height:100%;',
     '100%':'width:0;height:0;'
@@ -62,7 +54,7 @@ new JS2CSSKeyframes('ani_1',{
 
 //用法三
 //均等比例帧可以使用数组省略比例
-new JS2CSSKeyframes('ani_1',[
+ani=new JS2CSSKeyframes('ani_1',[
     'width:0;height:0', //0%
     'width:100px;height:100%;', //50%
     'width:0;height:0;' //100%
@@ -81,24 +73,49 @@ console.log(nai.name); //输出 css3Ani_999997712
 
 //JS2CSSKeyframes实例对象的其它属性及方法说明
 //@prop String name 动画名称
+console.log(ani.name);
+
 //@prop String cssText 动画内容
-//@prop CSSRuleList 动画帧信息集合
+console.log(ani.cssText);
+
+//@prop CSSRuleList cssRules 动画帧信息集合
+console.dir(ani.cssRules);
+
 //@prop Object keyframes 动画帧对象，键值为比例百分比，0% 50% 等 
+console.dir(ani.keyframes);
 
 //@method get(key) 获取指定进度的CSSKeyframeRule帧
+ani.get('ani_1')
+
 //@method add(key,value) 增加进度为key，样式为value的帧
+ani.get('50%')
+
 //@method remove(key) 删除进度为key的帧
+ani.remove('50%');
+
 //@method clear() 删除所有的帧
+ani.clear();
 
 
 
-//JS2CSSKeyframes.CSSKeyframes //获取页面上所有的css3动画
+JS2CSSKeyframes.CSSKeyframes //Object 获取页面上所有的css3动画
+
 //JS2CSSKeyframes.get(name) //获取页面上名为name的动画
-//JS2CSSKeyframes.remove(name) //删除页面上名为name的动画
-//JS2CSSKeyframes.add(name,config) //增加动画，同 new JS2CSSKeyframes(name,config);
-//JS2CSSKeyframes.vendor 当前浏览器前缀 -webkit -moz- 或空字符串
-//JS2CSSKeyframes.support 是否支持css动画，不支持css3动画的浏览器中调用JS2CSSKeyframes其它方法将会报错
+JS2CSSKeyframes.get('ani_1');
 
+//JS2CSSKeyframes.remove(name) //删除页面上名为name的动画
+JS2CSSKeyframes.remove'ani_1');
+
+//JS2CSSKeyframes.add(name,config) //增加动画，同 new JS2CSSKeyframes(name,config);
+JS2CSSKeyframes.add("test", {
+    "from":"width:300px;height:100px;",
+    "50%":"width:30px;height:10px;",
+    "to":{width:"300px",height:"10px"}
+});
+
+JS2CSSKeyframes.vendor //String 当前浏览器前缀 -webkit -moz- 或空字符串
+
+JS2CSSKeyframes.support //Boolean 是否支持css动画，不支持css3动画的浏览器中调用JS2CSSKeyframes其它方法将会报错
 
 ````
 
