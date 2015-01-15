@@ -1,5 +1,5 @@
 # JS2CSSKeyframes
-Create CSS3 keyframes animation from javascript. 
+Create CSS3 keyframes animation from javascript.  
 使用JS动态创建管理CSS3 Animations。
 
 ## 为何使用
