@@ -5,9 +5,11 @@ Create CSS3 keyframes animation from javascript.
 ## 为何使用
 随着支持HTML5的普及，页面中使用各种动画的地方越来越多，尤其是一个小型的动画，使用css3来做无疑是既方便又快捷的一个选择。 
 
-但是由于浏览器间差异（主要是 webkit 和 moz），我们目前使用css3动画还必须写上各种浏览器前缀，这样无疑给开发工作增添许多麻烦，添加 修改都是无尽的麻烦。 
+但是由于浏览器间差异（主要是 webkit 和 moz），我们目前使用css3动画还必须写上各种浏览器前缀，这样无疑给开发工作增添许多麻烦，添加 修改都是无尽的麻烦。在css中预先定义各种动画，每个都要写三遍，无疑又臭又长。
 
 JS2CSSKeyframes就是解决这个问题的，它可以自动根据不同浏览器生成其支持的css3动画@keyframes，省去各种前缀。动画中的css3属性也会自动加入前缀，无需单独书写。 
+
+使用 JS2CSSKeyframes 来代替在css中定义css3动画，添加、修改、删除都会变得轻松无比。而且还可以定义复杂无比的css3动画，这是用css无法想象的！！
 
 例如：new JS2CSSKeyframes("test", {from:{transform:'translate(0,0);'},to:{transform:'translate(100px,100px);'}}); 
 
