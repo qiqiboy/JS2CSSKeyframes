@@ -78,7 +78,7 @@
             }).join(' ');
         }else if(keys){
             cssText=Object.keys(keys).map(function(key){
-                    return key.split(/\s+,?\s*/).map(function(k){return fixKey(k);}).join(', ')+' { '+getKeyframesRule(keys[key])+' }';
+                    return (key+'').replace(/^\s+|\s+$/g,'').split(/\s+|\s*,\s*/).map(function(k){return fixKey(k);}).join(', ')+' { '+getKeyframesRule(keys[key])+' }';
                 }).join(' ');
         }
 
