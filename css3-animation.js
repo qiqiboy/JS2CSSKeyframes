@@ -22,9 +22,9 @@
         fadeOut:JS2CSSKeyframes('fadeOut',['opacity:1','opacity:0']), //渐隐
         scaleIn:JS2CSSKeyframes('scaleIn',['transform:scale(0)','transform:scale(1)']), //渐大显示
         scaleOut:JS2CSSKeyframes('scaleOut',['transform:scale(1)','transform:scale(0)']), //渐小消失
-        flyTop:JS2CSSKeyframes('flyTop',['transform:translate(0,50px);opacity:0','transform:translate(0,0);opacity:1']), //上淡入
+        flyTop:JS2CSSKeyframes('flyTop',['transform:translate(0,-50px);opacity:0','transform:translate(0,0);opacity:1']), //上淡入
         flyRight:JS2CSSKeyframes('flyRight',['transform:translate(50px,0);opacity:0','transform:translate(0,0);opacity:1']), //右淡入
-        flybottom:JS2CSSKeyframes('flybottom',['transform:translate(0,-50px);opacity:0','transform:translate(0,0);opacity:1']), //下淡入
+        flybottom:JS2CSSKeyframes('flybottom',['transform:translate(0,50px);opacity:0','transform:translate(0,0);opacity:1']), //下淡入
         flyLeft:JS2CSSKeyframes('flyLeft',['transform-origin:center center;transform:translate(-50px,0);opacity:0','transform:translate(0,0);opacity:1']), //左淡入
         rotateIn:JS2CSSKeyframes('rotateIn',['transform-origin:center center;transform:rotate(-200deg);opacity:0','transform:rotate(0);opacity:1']), //转入
         rotateOut:JS2CSSKeyframes('rotateOut',['transform-origin:center center;transform:rotate(0);opacity:1','transform:rotate(200deg);opacity:0']), //转出
