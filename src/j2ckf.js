@@ -43,7 +43,7 @@
 
     function iterateSheet(callback){
         slice.call(doc.styleSheets).forEach(function getRule(sheet){
-            slice.call(sheet.cssRules||styles.rules).forEach(function(rule,i){
+            slice.call(sheet.cssRules).forEach(function(rule,i){
                 if(rule.type==IMPORT_RULE){//imported css
                     getRule(rule.styleSheet||rule.sheet);
                 }else if(rule.type==MEDIA_RULE){

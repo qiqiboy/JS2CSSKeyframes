@@ -10,7 +10,12 @@
 
     var styleSheet=document.styleSheets.item(0);
     var vendor=JS2CSSKeyframes.vendor;
-    
+    var pos=0;
+
+    while(styleSheet.cssRules.item(pos) && styleSheet.cssRules.item(pos).type!=1){
+        pos++;
+    }
+
     //生成各类动画
     var css3Ani={
         fadeIn:JS2CSSKeyframes('fadeIn',['opacity:0','opacity:1']),
@@ -35,11 +40,11 @@
     
     //生成1s ease曲线执行的css类，如 .flyTop { -webkit-aniamtion: flyTop 1s ease; }
     Object.keys(css3Ani).forEach(function(name){
-        styleSheet.insertRule('.'+name+'{ '+vendor+'animation: '+name+' 1s ease }',0);
+        styleSheet.insertRule('.'+name+'{ '+vendor+'animation: '+name+' 1s ease }',pos);
     });
     
     "200 400 500 1000 1200 1500 2000 3000".split(" ").forEach(function(t){
-        styleSheet.insertRule('.delay'+t+'{ '+vendor+'animation-delay: '+t+'ms; '+vendor+'animation-fill-mode: backwards }',0);
+        styleSheet.insertRule('.delay'+t+'{ '+vendor+'animation-delay: '+t+'ms; '+vendor+'animation-fill-mode: backwards }',pos);
     });
     
     ROOT.css3Ani=css3Ani;
