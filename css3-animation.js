@@ -29,28 +29,28 @@
         rotateIn:JS2CSSKeyframes('rotateIn',['transform-origin:center center;transform:rotate(-200deg);opacity:0','transform:rotate(0);opacity:1']), //转入
         rotateOut:JS2CSSKeyframes('rotateOut',['transform-origin:center center;transform:rotate(0);opacity:1','transform:rotate(200deg);opacity:0']), //转出
         bounce:JS2CSSKeyframes('bounce',{  //弹跳
-            '0%,20%,50%,80%,100%':'transform:translateY(0);',
+            '0%,20%,50%,80%,100%':'transform:translateY(0)',
             '40%':'transform:translateY(-30px)',
             '60%':'transform:translateY(-15px)'
         }),
         bounceIn:JS2CSSKeyframes('bounceIn',{  //弹入
-            '0%':'transform:scale(0.3);opacity:0;',
-            '50%':'transform:scale(1.05);opacity:1;',
-            '70%':'transform:scale(0.9);',
-            '100%':'transform:scale(1;'
+            '0%':'transform:scale(0.3);opacity:0',
+            '50%':'transform:scale(1.05);opacity:1',
+            '70%':'transform:scale(0.9)',
+            '100%':'transform:scale(1)'
         }),
         bounceOut:JS2CSSKeyframes('bounceOut',{  //弹出
-            '100%':'transform:scale(0.3);opacity:0;',
-            '50%':'transform:scale(1.1);opacity:1;',
-            '25%':'transform:scale(0.96);',
-            '0%':'transform:scale(1;'
+            '100%':'transform:scale(0.3);opacity:0',
+            '50%':'transform:scale(1.1);opacity:1',
+            '25%':'transform:scale(0.96)',
+            '0%':'transform:scale(1)'
         }),
         flash:JS2CSSKeyframes('flash',{  //闪烁
             '0%,50%,100%':'opacity:1;',
             '25%,75%':'opacity:0;'
         }),
         shake:JS2CSSKeyframes('shake',{  //震颤
-            '0%,100%':'transform:translateX(0);',
+            '0%,100%':'transform:translateX(0)',
             '10%,30%,50%,70%,90%':'transform:translateX(-10px)',
             '20%,40%,60%,80%':'transform:translateX(10px)'
         }),
