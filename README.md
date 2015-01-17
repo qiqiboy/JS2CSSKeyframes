@@ -87,10 +87,10 @@ console.dir(ani.cssRules);
 console.dir(ani.keyframes);
 
 //@method get(key) 获取指定进度的CSSKeyframeRule帧
-ani.get('ani_1')
+ani.get('50%')
 
 //@method add(key,value) 增加进度为key，样式为value的帧
-ani.get('50%')
+ani.add('70%',{opacity:.5,height:'100px'})
 
 //@method remove(key) 删除进度为key的帧
 ani.remove('50%');
