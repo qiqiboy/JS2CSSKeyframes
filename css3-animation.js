@@ -15,33 +15,29 @@
     var css3Ani={};
     var CONFIG={
         bounce:{
-            '0%,20%,50%,80%,100%':'transform:none',
+            '20%,50%,80%':'transform:none',
             '40%':'transform:translateY(-30px)',
             '60%':'transform:translateY(-15px)'
         },
         bounceIn:{
             '0%':'transform:scale(0.3);opacity:0',
             '50%':'transform:scale(1.05);opacity:1',
-            '75%':'transform:scale(0.9)',
-            '100%':'transform:scale(1)'
+            '75%':'transform:scale(0.9)'
         },
         bounceOut:{
             '100%':'transform:scale(0.3);opacity:0',
             '50%':'transform:scale(1.1);opacity:1',
-            '25%':'transform:scale(0.96)',
-            '0%':'transform:scale(1)'
+            '25%':'transform:scale(0.96)'
         },
         flash:{
-            '0%,50%,100%':'opacity:1;',
+            '50%':'opacity:1;',
             '25%,75%':'opacity:0;'
         },
         shake:{
-            '0%,100%':'transform:none',
             '10%,30%,50%,70%,90%':'transform:translateX(-10px)',
             '20%,40%,60%,80%':'transform:translateX(10px)'
         },
         rubberBand:{
-            '0%,100%':'transform:scale3d(1,1,1)',
             '30%':'transform:scale3d(1.25,0.75,1)',
             '40%':'transform:scale3d(0.75,1.25,1)',
             '50%':'transform:scale3d(1.15,0.85,1)',
@@ -49,7 +45,6 @@
             '75%':'transform:scale3d(1.05,.95,1)'
         },
         tada:{
-            '0%,100%':'transform:none',
             '10%,20%':'transform:scale3d(.9,.9,.9) rotate3d(0,0,1,-3deg)',
             '30%,50%,70%,90%':'transform:scale3d(1.1,1.1,1.1) rotate3d(0,0,1,3deg)',
             '40%,60%,80%':'transform:scale3d(1.1,1.1,1.1) rotate3d(0,0,1,-3deg)'
@@ -60,11 +55,9 @@
             '40%,80%':'transform-origin:0 0;transform:rotate(60deg)',
             '100%':'transform-origin:0 0;transform:translateY(100%);opacity:0',
         },
-        pulse:[
-            'transform:none',
-            'transform:scale3d(1.05,1.05,1.05)',
-            'transform:none'
-        ],
+        pulse:{
+            '50%':'transform:scale3d(1.05,1.05,1.05)'
+        },
         wiggle:[
             'transform:skewX(-10deg)',
             'transform:skewX(9deg)',
@@ -96,13 +89,11 @@
             'transform:none'
         ],
         ring:{
-            '0%,100%':'transform:none',
             '10%,20%':'transform:scale(0.9) rotate(-3deg)',
             '30%,50%,70%,90%':'transform:scale(1.1) rotate(3deg)',
             '40%,60%,80%':'transform:scale(1.1) rotate(-3deg)'
         },
         flip:{
-            '0%':'transform:perspective(400px) rotateY(0);animation-timing-function:ease-out',
             '40%':'transform:perspective(400px) translateZ(150px) rotateY(170deg);animation-timing-function:ease-out',
             '50%':'transform:perspective(400px) translateZ(150px) rotateY(190deg) scale(1);animation-timing-function:ease-in',
             '80%':'transform:perspective(400px) rotateY(360deg) scale(0.95);animation-timing-function:ease-in',
@@ -128,14 +119,14 @@
         var call=i?'reverse':'slice';
         CONFIG['fade'+prop]=['opacity:0','opacity:1'][call]();
         CONFIG['roll'+prop]=['opacity:0;transform:translateX(-100px) rotate(-120deg)','opacity:1;transform:none'][call]();
-        CONFIG['scale'+prop]=['transform:scale(0)','transform:none'][call]();
-        CONFIG['zoom'+prop]=['transform:scale(2);opacity:0','transform:none;opacity:1'][call]();
-        CONFIG['flyTop'+prop]=['transform:translateY(-50px);opacity:0','transform:none;opacity:1'][call]();
-        CONFIG['flyRight'+prop]=['transform:translateX(50px);opacity:0','transform:none;opacity:1'][call]();
-        CONFIG['flyBottom'+prop]=['transform:translateY(50px);opacity:0','transform:none;opacity:1'][call]();
-        CONFIG['flyLeft'+prop]=['transform:translateX(-50px);opacity:0','transform:none;opacity:1'][call]();
-        CONFIG['rotate'+prop]=['transform-origin:50% 50%;transform:rotate(-200deg);opacity:0','transform:none;opacity:1'][call]();
-        CONFIG['lightSpeed'+prop]=['transform:translateX(100%) skewX(-30deg);opacity:0','transform:none;opacity:1'][call]();
+        CONFIG['scale'+prop]=['transform:scale(0);opacity:0','opacity:1'][call]();
+        CONFIG['zoom'+prop]=['transform:scale(2);opacity:0','opacity:1'][call]();
+        CONFIG['flyTop'+prop]=['transform:translateY(-50px);opacity:0','opacity:1'][call]();
+        CONFIG['flyRight'+prop]=['transform:translateX(50px);opacity:0','opacity:1'][call]();
+        CONFIG['flyBottom'+prop]=['transform:translateY(50px);opacity:0','pacity:1'][call]();
+        CONFIG['flyLeft'+prop]=['transform:translateX(-50px);opacity:0','opacity:1'][call]();
+        CONFIG['rotate'+prop]=['transform-origin:50% 50%;transform:rotate(-200deg);opacity:0','opacity:1'][call]();
+        CONFIG['lightSpeed'+prop]=['transform:translateX(100%) skewX(-30deg);opacity:0','opacity:1'][call]();
     });
     
     Object.keys(CONFIG).forEach(function(name){
