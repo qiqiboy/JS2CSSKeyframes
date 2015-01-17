@@ -38,22 +38,22 @@
             '20%,40%,60%,80%':'transform:translateX(10px)'
         },
         rubberBand:{
-            '30%':'transform:scale3d(1.25,0.75,1)',
-            '40%':'transform:scale3d(0.75,1.25,1)',
-            '50%':'transform:scale3d(1.15,0.85,1)',
-            '65%':'transform:scale3d(.95,1.05,1)',
-            '75%':'transform:scale3d(1.05,.95,1)'
+            '30%':'transform:scale(1.25,0.75)',
+            '40%':'transform:scale(0.75,1.25)',
+            '50%':'transform:scale(1.15,0.85)',
+            '65%':'transform:scale(.95,1.05)',
+            '75%':'transform:scale(1.05,.95)'
         },
         tada:{
-            '10%,20%':'transform:scale3d(.9,.9,.9) rotate3d(0,0,1,-3deg)',
-            '30%,50%,70%,90%':'transform:scale3d(1.1,1.1,1.1) rotate3d(0,0,1,3deg)',
-            '40%,60%,80%':'transform:scale3d(1.1,1.1,1.1) rotate3d(0,0,1,-3deg)'
+            '10%,20%':'transform:scale(.9) rotate(-3deg)',
+            '30%,50%,70%,90%':'transform:scale(1.1) rotate(3deg)',
+            '40%,60%,80%':'transform:scale(1.1) rotate(-3deg)'
         },
         hinge:{
             '0%':'transform-origin:0 0',
             '20%,60%':'transform-origin:0 0;transform:rotate(30deg)',
-            '40%,80%':'transform-origin:0 0;transform:rotate(60deg)',
-            '100%':'transform-origin:0 0;transform:translateY(100%);opacity:0',
+            '40%,80%':'transform-origin:0 0;transform:rotate(60deg);opacity:1',
+            '100%':'transform-origin:0 0;transform:translateY(200%);opacity:0',
         },
         pulse:{
             '50%':'transform:scale3d(1.05,1.05,1.05)'
