@@ -88,7 +88,7 @@
                 }).join(' ');
         }
 
-        return '@'+cssVendor+'keyframes '+name+' { '+cssText+' }';;
+        return '@'+cssVendor+'keyframes '+name+' { '+cssText+' }';
     }
 
     function getKeyframesRule(rule,name){
