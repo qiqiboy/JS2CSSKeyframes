@@ -14,67 +14,94 @@
     //生成各类动画
     var css3Ani={};
     var CONFIG={
-        fadeIn:['opacity:0','opacity:1'], //渐显
-        fadeOut:['opacity:1','opacity:0'], //渐隐
-        scaleIn:['transform:scale(0)','transform:scale(1)'], //渐大显示
-        scaleOut:['transform:scale(1)','transform:scale(0)'], //渐小消失
-        flyTop:['transform:translate(0,-50px);opacity:0','transform:translate(0,0);opacity:1'], //上淡入
-        flyRight:['transform:translate(50px,0);opacity:0','transform:translate(0,0);opacity:1'], //右淡入
-        flybottom:['transform:translate(0,50px);opacity:0','transform:translate(0,0);opacity:1'], //下淡入
-        flyLeft:['transform-origin:center center;transform:translate(-50px,0);opacity:0','transform:translate(0,0);opacity:1'], //左淡入
-        rotateIn:['transform-origin:center center;transform:rotate(-200deg);opacity:0','transform:rotate(0);opacity:1'], //转入
-        rotateOut:['transform-origin:center center;transform:rotate(0);opacity:1','transform:rotate(200deg);opacity:0'], //转出
-        bounce:{  //弹跳
-            '0%,20%,50%,80%,100%':'transform:translateY(0)',
+        bounce:{
+            '0%,20%,50%,80%,100%':'transform:none',
             '40%':'transform:translateY(-30px)',
             '60%':'transform:translateY(-15px)'
         },
-        bounceIn:{  //弹入
+        bounceIn:{
             '0%':'transform:scale(0.3);opacity:0',
             '50%':'transform:scale(1.05);opacity:1',
-            '70%':'transform:scale(0.9)',
+            '75%':'transform:scale(0.9)',
             '100%':'transform:scale(1)'
         },
-        bounceOut:{  //弹出
+        bounceOut:{
             '100%':'transform:scale(0.3);opacity:0',
             '50%':'transform:scale(1.1);opacity:1',
             '25%':'transform:scale(0.96)',
             '0%':'transform:scale(1)'
         },
-        flash:{  //闪烁
+        flash:{
             '0%,50%,100%':'opacity:1;',
             '25%,75%':'opacity:0;'
         },
-        shake:{  //震颤
-            '0%,100%':'transform:translateX(0)',
+        shake:{
+            '0%,100%':'transform:none',
             '10%,30%,50%,70%,90%':'transform:translateX(-10px)',
             '20%,40%,60%,80%':'transform:translateX(10px)'
         },
-        swing:[  //摇摆
-            'transform:rotate(0)',
+        rubberBand:{
+            '0%,100%':'transform:scale3d(1,1,1)',
+            '30%':'transform:scale3d(1.25,0.75,1)',
+            '40%':'transform:scale3d(0.75,1.25,1)',
+            '50%':'transform:scale3d(1.15,0.85,1)',
+            '65%':'transform:scale3d(.95,1.05,1)',
+            '75%':'transform:scale3d(1.05,.95,1)'
+        },
+        tada:{
+            '0%,100%':'transform:none',
+            '10%,20%':'transform:scale3d(.9,.9,.9) rotate3d(0,0,1,-3deg)',
+            '30%,50%,70%,90%':'transform:scale3d(1.1,1.1,1.1) rotate3d(0,0,1,3deg)',
+            '40%,60%,80%':'transform:scale3d(1.1,1.1,1.1) rotate3d(0,0,1,-3deg)'
+        },
+        hinge:{
+            '0%':'transform-origin:0 0',
+            '20%,60%':'transform-origin:0 0;transform:rotate(30deg)',
+            '40%,80%':'transform-origin:0 0;transform:rotate(60deg)',
+            '100%':'transform-origin:0 0;transform:translateY(100%);opacity:0',
+        },
+        pulse:[
+            'transform:none',
+            'transform:scale3d(1.05,1.05,1.05)',
+            'transform:none'
+        ],
+        wiggle:[
+            'transform:skewX(-10deg)',
+            'transform:skewX(9deg)',
+            'transform:skewX(-8deg)',
+            'transform:skewX(7deg)',
+            'transform:skewX(-6deg)',
+            'transform:skewX(5deg)',
+            'transform:skewX(-4deg)',
+            'transform:skewX(3deg)',
+            'transform:skewX(-2deg)',
+            'transform:skewX(1deg)',
+            'transform:none'
+        ],
+        swing:[
+            'transform:none',
             'transform:rotate(15deg)',
             'transform:rotate(-10deg)',
             'transform:rotate(5deg)',
             'transform:rotate(-5deg)',
-            'transform:rotate(0)'
+            'transform:none'
         ],
-        wobble:[  //摇晃
-            'transform:translateX(0)',
+        wobble:[
+            'transform:none',
             'transform:translateX(-100px) rotate(-5deg)',
             'transform:translateX(80px) rotate(3deg)',
             'transform:translateX(-65px) rotate(-3deg)',
             'transform:translateX(40px) rotate(2deg)',
             'transform:translateX(-20px) rotate(-1deg)',
-            'transform:translateX(0)'
+            'transform:none'
         ],
-        ring:{  //振铃
-            '0%':'transform:scale(1)',
+        ring:{
+            '0%,100%':'transform:none',
             '10%,20%':'transform:scale(0.9) rotate(-3deg)',
             '30%,50%,70%,90%':'transform:scale(1.1) rotate(3deg)',
-            '40%,60%,80%':'transform:scale(1.1) rotate(-3deg)',
-            '100%':'transform:scale(1) rotate(0)'
+            '40%,60%,80%':'transform:scale(1.1) rotate(-3deg)'
         },
-        flip:{  //翻转
+        flip:{
             '0%':'transform:perspective(400px) rotateY(0);animation-timing-function:ease-out',
             '40%':'transform:perspective(400px) translateZ(150px) rotateY(170deg);animation-timing-function:ease-out',
             '50%':'transform:perspective(400px) translateZ(150px) rotateY(190deg) scale(1);animation-timing-function:ease-in',
@@ -83,7 +110,6 @@
         }
     };
 
-    //x y轴翻转显隐
     "X Y".split(" ").forEach(function(prop){
         CONFIG['flipin'+prop]={
                 '0%':'transform:perspective(400px) rotate'+prop+'(90deg);opacity:0',
@@ -97,12 +123,28 @@
                 '100%':'transform:perspective(400px) rotate'+prop+'(90deg);opacity:0'
             };
     });
+
+    "In Out".split(" ").forEach(function(prop,i){
+        var call=i?'reverse':'slice';
+        CONFIG['fade'+prop]=['opacity:0','opacity:1'][call]();
+        CONFIG['roll'+prop]=['opacity:0;transform:translateX(-100px) rotate(-120deg)','opacity:1;transform:none'][call]();
+        CONFIG['scale'+prop]=['transform:scale(0)','transform:none'][call]();
+        CONFIG['zoom'+prop]=['transform:scale(2);opacity:0','transform:none;opacity:1'][call]();
+        CONFIG['flyTop'+prop]=['transform:translateY(-50px);opacity:0','transform:none;opacity:1'][call]();
+        CONFIG['flyRight'+prop]=['transform:translateX(50px);opacity:0','transform:none;opacity:1'][call]();
+        CONFIG['flyBottom'+prop]=['transform:translateY(50px);opacity:0','transform:none;opacity:1'][call]();
+        CONFIG['flyLeft'+prop]=['transform:translateX(-50px);opacity:0','transform:none;opacity:1'][call]();
+        CONFIG['rotate'+prop]=['transform-origin:50% 50%;transform:rotate(-200deg);opacity:0','transform:none;opacity:1'][call]();
+        CONFIG['lightSpeed'+prop]=['transform:translateX(100%) skewX(-30deg);opacity:0','transform:none;opacity:1'][call]();
+    });
     
     Object.keys(CONFIG).forEach(function(name){
         css3Ani[name]=JS2CSSKeyframes(name,CONFIG[name]);
 
-        //生成1s ease曲线执行的css类，如 .a-flyTop { -webkit-animation: flyTop 1s ease }
-        styleSheet.insertRule('.a-'+name+'{ '+vendor+'animation: '+name+' 1s ease }',styleSheet.cssRules.length);
+        //生成1s ease曲线执行的css类，如 .a-flyTopIn { -webkit-animation: flyTopIn 1s ease }
+        styleSheet.insertRule('.a-'+name+' { '+vendor+'animation: '+name+' 1s ease }',styleSheet.cssRules.length);
+        
+        console.log('.a-'+name+' { '+vendor+'animation: '+name+' 1s ease }')
     });
 
     
