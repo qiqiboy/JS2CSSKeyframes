@@ -34,11 +34,10 @@
         var n=0,
             sheet,
             style;
-        while(sheet=doc.styleSheets.item(n)){
+        while(sheet=doc.styleSheets.item(n++)){
             if(sheet.cssRules){
                 return sheet;
             }
-            n++;
         }
 
         style=doc.createElement('style');
@@ -85,7 +84,7 @@
             }).join(' ');
         }else if(keys){
             cssText=Object.keys(keys).map(function(key){
-                    return (key+'').replace(/^\s+|\s+$/g,'').split(/\s+|\s*,\s*/).map(function(k){return fixKey(k);}).join(', ')+' { '+getKeyframesRule(keys[key])+' }';
+                    return (key+'').trim().split(/\s*[\s,]\s*/).map(function(k){return fixKey(k);}).join(', ')+' { '+getKeyframesRule(keys[key])+' }';
                 }).join(' ');
         }
 
