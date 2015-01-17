@@ -151,7 +151,7 @@
                 }
             }else{
                 this.remove(name);
-                this.keyframesRule['appendRule' in this.keyframesRule?'':'insertRule'](name+' {'+getKeyframesRule(value)+'}');
+                this.keyframesRule['appendRule' in this.keyframesRule?'':'insertRule'](fixKey(name)+' {'+getKeyframesRule(value)+'}');
             }
             
             return this.extract();
