@@ -134,8 +134,6 @@
 
         //生成1s ease曲线执行的css类，如 .a-flyTopIn { -webkit-animation: flyTopIn 1s ease }
         styleSheet.insertRule('.a-'+name+' { '+vendor+'animation: '+name+' 1s ease }',styleSheet.cssRules.length);
-        
-        console.log('.a-'+name+' { '+vendor+'animation: '+name+' 1s ease }')
     });
 
     
