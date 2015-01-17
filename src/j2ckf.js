@@ -31,14 +31,21 @@
         KEY_REG=new RegExp('@(?:'+cssVendor+')?keyframes','i');
 
     function getSheet(){ //获取可以用的样式以用来插入css3 keyframes
-        if(!doc.styleSheets.length){
-            var style=doc.createElement('style');
-            style.rel='stylesheet';
-            style.type='text/css';
-            doc.getElementsByTagName('head')[0].appendChild(style);
+        var n=0,
+            sheet,
+            style;
+        while(sheet=doc.styleSheets.item(n)){
+            if(sheet.cssRules){
+                return sheet;
+            }
+            n++;
         }
+
+        style=doc.createElement('style');
+        style.type='text/css';
+        doc.getElementsByTagName('head')[0].appendChild(style);
         
-        return doc.styleSheets.item(0);
+        return style.sheet;
     }
 
     function iterateSheet(callback){
