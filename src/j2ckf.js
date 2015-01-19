@@ -191,7 +191,7 @@
             return true;
         },
         animation:camelCase(fixCSS3('animation')),
-        support:camelCase('animation') in divstyle || camelCase(cssVendor+'animation') in divstyle
+        support:camelCase(fixCSS3('animation')) in divstyle
     }
 
     if(typeof Object.defineProperties=='function'){
