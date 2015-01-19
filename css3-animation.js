@@ -56,7 +56,7 @@
             '100%':'transform-origin:0 0;transform:translateY(200%);opacity:0'
         },
         pulse:{
-            '50%':'transform:scale3d(1.05,1.05,1.05)'
+            '50%':'transform:scale(1.05)'
         },
         wiggle:[
             'transform:skewX(-10deg)',
@@ -69,24 +69,24 @@
             'transform:skewX(3deg)',
             'transform:skewX(-2deg)',
             'transform:skewX(1deg)',
-            'transform:none'
+            ''
         ],
         swing:[
-            'transform:none',
+            '',
             'transform:rotate(15deg)',
             'transform:rotate(-10deg)',
             'transform:rotate(5deg)',
             'transform:rotate(-5deg)',
-            'transform:none'
+            ''
         ],
         wobble:[
-            'transform:none',
+            '',
             'transform:translateX(-100px) rotate(-5deg)',
             'transform:translateX(80px) rotate(3deg)',
             'transform:translateX(-65px) rotate(-3deg)',
             'transform:translateX(40px) rotate(2deg)',
             'transform:translateX(-20px) rotate(-1deg)',
-            'transform:none'
+            ''
         ],
         ring:{
             '10%,20%':'transform:scale(0.9) rotate(-3deg)',
@@ -106,27 +106,27 @@
                 '0%':'transform:perspective(400px) rotate'+prop+'(90deg);opacity:0',
                 '40%':'transform:perspective(400px) rotate'+prop+'(-10deg)',
                 '70%':'transform:perspective(400px) rotate'+prop+'(10deg)',
-                '100%':'transform:perspective(400px) rotate'+prop+'(0);opacity:1'
+                '100%':'transform:perspective(400px) rotate'+prop+'(0);'
             };
 
         CONFIG['flipout'+prop]={
-                '0%':'transform:perspective(400px) rotate'+prop+'(0);opacity:1',
+                '0%':'transform:perspective(400px) rotate'+prop+'(0);',
                 '100%':'transform:perspective(400px) rotate'+prop+'(90deg);opacity:0'
             };
     });
 
     "In Out".split(" ").forEach(function(prop,i){
         var call=i?'reverse':'slice';
-        CONFIG['fade'+prop]=['opacity:0','opacity:1'][call]();
-        CONFIG['roll'+prop]=['opacity:0;transform:translateX(-100px) rotate(-120deg)','opacity:1;transform:none'][call]();
-        CONFIG['scale'+prop]=['transform:scale(0);opacity:0','opacity:1'][call]();
-        CONFIG['zoom'+prop]=['transform:scale(2);opacity:0','opacity:1'][call]();
-        CONFIG['flyTop'+prop]=['transform:translateY(-50px);opacity:0','opacity:1'][call]();
-        CONFIG['flyRight'+prop]=['transform:translateX(50px);opacity:0','opacity:1'][call]();
-        CONFIG['flyBottom'+prop]=['transform:translateY(50px);opacity:0','opacity:1'][call]();
-        CONFIG['flyLeft'+prop]=['transform:translateX(-50px);opacity:0','opacity:1'][call]();
-        CONFIG['rotate'+prop]=['transform-origin:50% 50%;transform:rotate(-200deg);opacity:0','opacity:1'][call]();
-        CONFIG['lightSpeed'+prop]=['transform:translateX(100%) skewX(-30deg);opacity:0','opacity:1'][call]();
+        CONFIG['fade'+prop]=['opacity:0',''][call]();
+        CONFIG['roll'+prop]=['opacity:0;transform:translateX(-100px) rotate(-120deg)',''][call]();
+        CONFIG['scale'+prop]=['transform:scale(0);opacity:0',''][call]();
+        CONFIG['zoom'+prop]=['transform:scale(2);opacity:0',''][call]();
+        CONFIG['flyTop'+prop]=['transform:translateY(-50px);opacity:0',''][call]();
+        CONFIG['flyRight'+prop]=['transform:translateX(50px);opacity:0',''][call]();
+        CONFIG['flyBottom'+prop]=['transform:translateY(50px);opacity:0',''][call]();
+        CONFIG['flyLeft'+prop]=['transform:translateX(-50px);opacity:0',''][call]();
+        CONFIG['rotate'+prop]=['transform-origin:50% 50%;transform:rotate(-200deg);opacity:0',''][call]();
+        CONFIG['lightSpeed'+prop]=['transform:translateX(100%) skewX(-30deg);opacity:0',''][call]();
     });
     
     Object.keys(CONFIG).forEach(function(name){
