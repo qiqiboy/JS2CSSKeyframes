@@ -53,7 +53,7 @@
             '0%':'transform-origin:0 0',
             '20%,60%':'transform-origin:0 0;transform:rotate(30deg)',
             '40%,80%':'transform-origin:0 0;transform:rotate(60deg);opacity:1',
-            '100%':'transform-origin:0 0;transform:translateY(200%);opacity:0',
+            '100%':'transform-origin:0 0;transform:translateY(200%);opacity:0'
         },
         pulse:{
             '50%':'transform:scale3d(1.05,1.05,1.05)'
