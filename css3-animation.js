@@ -106,11 +106,9 @@
                 '0%':'transform:perspective(400px) rotate'+prop+'(90deg);opacity:0',
                 '40%':'transform:perspective(400px) rotate'+prop+'(-10deg)',
                 '70%':'transform:perspective(400px) rotate'+prop+'(10deg)',
-                '100%':'transform:perspective(400px) rotate'+prop+'(0);'
             };
 
         CONFIG['flipout'+prop]={
-                '0%':'transform:perspective(400px) rotate'+prop+'(0);',
                 '100%':'transform:perspective(400px) rotate'+prop+'(90deg);opacity:0'
             };
     });
