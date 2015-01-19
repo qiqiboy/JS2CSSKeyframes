@@ -123,7 +123,7 @@
         CONFIG['zoom'+prop]=['transform:scale(2);opacity:0','opacity:1'][call]();
         CONFIG['flyTop'+prop]=['transform:translateY(-50px);opacity:0','opacity:1'][call]();
         CONFIG['flyRight'+prop]=['transform:translateX(50px);opacity:0','opacity:1'][call]();
-        CONFIG['flyBottom'+prop]=['transform:translateY(50px);opacity:0','pacity:1'][call]();
+        CONFIG['flyBottom'+prop]=['transform:translateY(50px);opacity:0','opacity:1'][call]();
         CONFIG['flyLeft'+prop]=['transform:translateX(-50px);opacity:0','opacity:1'][call]();
         CONFIG['rotate'+prop]=['transform-origin:50% 50%;transform:rotate(-200deg);opacity:0','opacity:1'][call]();
         CONFIG['lightSpeed'+prop]=['transform:translateX(100%) skewX(-30deg);opacity:0','opacity:1'][call]();
