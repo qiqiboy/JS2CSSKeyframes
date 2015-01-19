@@ -94,10 +94,9 @@
             '40%,60%,80%':'transform:scale(1.1) rotate(-3deg)'
         },
         flip:{
-            '0%':'transform:perspective(400px) rotateY(-360deg)',
-            '50%':'transform:perspective(400px) translateZ(150px) rotateY(-190deg)',
-            '60%':'transform:perspective(400px) translateZ(150px) rotateY(-170deg)',
-            '100%':'transform:perspective(400px)'
+            '50%':'transform:perspective(400px) translateZ(150px) rotateY(170deg)',
+            '60%':'transform:perspective(400px) translateZ(150px) rotateY(190deg)',
+            '100%':'transform:perspective(400px) rotateY(360deg)'
         }
     };
 
