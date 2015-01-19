@@ -105,7 +105,7 @@
         CONFIG['flipin'+prop]={
                 '0%':'transform:perspective(400px) rotate'+prop+'(90deg);opacity:0',
                 '40%':'transform:perspective(400px) rotate'+prop+'(-10deg)',
-                '70%':'transform:perspective(400px) rotate'+prop+'(10deg)',
+                '70%':'transform:perspective(400px) rotate'+prop+'(10deg)'
             };
 
         CONFIG['flipout'+prop]={
