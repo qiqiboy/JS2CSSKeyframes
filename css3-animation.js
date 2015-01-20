@@ -134,9 +134,11 @@
     });
 
     
-    "100 200 300 400 500 600 800 1000 1200 1500 2000 3000 4000 5000 6000 7000 8000 9000 10000".split(" ").forEach(function(t){
-        styleSheet.insertRule('.delay'+t+'{ '+vendor+'animation-delay: '+t+'ms; '+vendor+'animation-fill-mode: backwards }',styleSheet.cssRules.length);
-    });
+    var delay=100;
+    while(delay<10000){
+        styleSheet.insertRule('.delay'+delay+'{ '+vendor+'animation-delay: '+delay+'ms; '+vendor+'animation-fill-mode: backwards }',styleSheet.cssRules.length);
+        delay+=delay<3000?100:1000;
+    }
     
     ROOT.css3Ani=css3Ani;
 
