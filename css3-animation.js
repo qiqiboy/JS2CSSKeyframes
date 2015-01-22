@@ -15,7 +15,7 @@
     var css3Ani={};
     var CONFIG={
         bounce:{
-            '20%,50%,80%,100%':'transform:translate(0)',
+            '20%,50%,80%':'transform:translate(0)',
             '40%':'transform:translateY(-30px)',
             '60%':'transform:translateY(-15px)'
         },
