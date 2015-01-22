@@ -15,14 +15,15 @@
     var css3Ani={};
     var CONFIG={
         bounce:{
-            '20%,50%,80%':'transform:none',
+            '20%,50%,80%,100%':'transform:translate(0)',
             '40%':'transform:translateY(-30px)',
             '60%':'transform:translateY(-15px)'
         },
         bounceIn:{
             '0%':'transform:scale(0.3);opacity:0',
             '50%':'transform:scale(1.05);opacity:1',
-            '75%':'transform:scale(0.9)'
+            '75%':'transform:scale(0.9)',
+            '100%':'transform:scale(1)'
         },
         bounceOut:{
             '100%':'transform:scale(0.3);opacity:0',
@@ -30,24 +31,27 @@
             '25%':'transform:scale(0.96)'
         },
         flash:{
-            '50%':'opacity:1;',
+            '50%,100%':'opacity:1;',
             '25%,75%':'opacity:0;'
         },
         shake:{
             '10%,30%,50%,70%,90%':'transform:translateX(-10px)',
-            '20%,40%,60%,80%':'transform:translateX(10px)'
+            '20%,40%,60%,80%':'transform:translateX(10px)',
+            '100%':'transform:translateX(0)'
         },
         rubberBand:{
             '30%':'transform:scale(1.25,0.75)',
             '40%':'transform:scale(0.75,1.25)',
             '50%':'transform:scale(1.15,0.85)',
             '65%':'transform:scale(.95,1.05)',
-            '75%':'transform:scale(1.05,.95)'
+            '75%':'transform:scale(1.05,.95)',
+            '100%':'transform:scale(1,1)'
         },
         tada:{
             '10%,20%':'transform:scale(.9) rotate(-3deg)',
             '30%,50%,70%,90%':'transform:scale(1.1) rotate(3deg)',
-            '40%,60%,80%':'transform:scale(1.1) rotate(-3deg)'
+            '40%,60%,80%':'transform:scale(1.1) rotate(-3deg)',
+            '100%':'transform:scale(1) rotate(0)'
         },
         hinge:{
             '0%':'transform-origin:0 0',
@@ -69,7 +73,7 @@
             'transform:skewX(3deg)',
             'transform:skewX(-2deg)',
             'transform:skewX(1deg)',
-            ''
+            'transform:skewX(0)'
         ],
         swing:[
             '',
@@ -77,7 +81,7 @@
             'transform:rotate(-10deg)',
             'transform:rotate(5deg)',
             'transform:rotate(-5deg)',
-            ''
+            'transform:rotate(0)'
         ],
         wobble:[
             '',
@@ -86,12 +90,13 @@
             'transform:translateX(-65px) rotate(-3deg)',
             'transform:translateX(40px) rotate(2deg)',
             'transform:translateX(-20px) rotate(-1deg)',
-            ''
+            'transform:translateX(0) rotate(0)'
         ],
         ring:{
             '10%,20%':'transform:scale(0.9) rotate(-3deg)',
             '30%,50%,70%,90%':'transform:scale(1.1) rotate(3deg)',
-            '40%,60%,80%':'transform:scale(1.1) rotate(-3deg)'
+            '40%,60%,80%':'transform:scale(1.1) rotate(-3deg)',
+            '0%,100%':'transform:scale(1) rotate(0)'
         },
         flip:{
             '50%':'transform:perspective(400px) translateZ(150px) rotateY(170deg)',
@@ -103,11 +108,13 @@
     "X Y".split(" ").forEach(function(prop){
         CONFIG['flipin'+prop]={
                 '0%':'transform:perspective(400px) rotate'+prop+'(90deg);opacity:0',
-                '40%':'transform:perspective(400px) rotate'+prop+'(-10deg)',
-                '70%':'transform:perspective(400px) rotate'+prop+'(10deg)'
+                '40%':'transform:perspective(400px) rotate'+prop+'(-10deg);opacity:1',
+                '70%':'transform:perspective(400px) rotate'+prop+'(10deg)',
+                '100%':'transform:perspective(400px) rotate'+prop+'(0)'
             };
 
         CONFIG['flipout'+prop]={
+                '50%':'opacity:1',
                 '100%':'transform:perspective(400px) rotate'+prop+'(90deg);opacity:0'
             };
     });
