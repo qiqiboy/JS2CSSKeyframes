@@ -84,7 +84,10 @@
             }).join(' ');
         }else if(keys){
             cssText=Object.keys(keys).map(function(key){
-                    return (key+'').trim().split(/\s*[\s,]\s*/).map(function(k){return fixKey(k);}).join(', ')+' { '+getKeyframesRule(keys[key])+' }';
+                    var ruleText=getKeyframesRule(keys[key]);
+                    return (key+'').trim().split(/\s*[\s,]\s*/).map(function(k){
+                        return fixKey(k)+' { '+ruleText+' }';
+                    }).join(' ');
                 }).join(' ');
         }
 
