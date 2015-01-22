@@ -11,7 +11,7 @@
         CSSRule=ROOT.CSSRule||{},
         IMPORT_RULE=CSSRule.IMPORT_RULE,
         MEDIA_RULE=CSSRule.MEDIA_RULE,
-        KEYFRAMES_RULE=CSSRule.KEYFRAMES_RULE||CSSRule.WEBKIT_KEYFRAMES_RULE||CSSRule.MOZ_KEYFRAMES_RULE,
+        KEYFRAMES_RULE=CSSRule.KEYFRAMES_RULE||CSSRule.WEBKIT_KEYFRAMES_RULE||CSSRule.MOZ_KEYFRAMES_RULE||CSSRule.O_KEYFRAMES_RULE,
         divstyle=document.documentElement.style,
         camelCase=function(str){
             return (str+'').replace(/^-ms-/, 'ms-').replace(/-([a-z]|[0-9])/ig, function(all, letter){
