@@ -154,15 +154,21 @@
             return this.keyframes[fixKey(name)];
         },
         add:function(name,value){
+            var frameRule=this.keyframesRule,
+                insert='appendRule' in frameRule?'appendRule':'insertRule',
+                ruleText;
             if(typeof name=='object'){
                 for(var key in name){
                     this.add(key, name[key]);
                 }
             }else{
-                this.remove(name);
-                this.keyframesRule['appendRule' in this.keyframesRule?'':'insertRule'](fixKey(name)+' {'+getKeyframesRule(value)+'}');
+                ruleText=getKeyframesRule(value);
+                (name+'').trim().split(/\s*[\s,]\s*/).forEach(function(k){
+                    this.remove(k);
+                    frameRule[insert](fixKey(k)+' { '+ruleText+' }');
+                }.bind(this));
             }
-            
+
             return this.extract();
         },
         remove:function(name){
