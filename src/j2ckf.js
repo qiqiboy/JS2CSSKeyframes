@@ -85,7 +85,7 @@
         }else if(keys){
             cssText=Object.keys(keys).map(function(key){
                     var ruleText=getKeyframesRule(keys[key]);
-                    return (key+'').trim().split(/\s*[\s,]\s*/).map(function(k){
+                    return splitKey(key).map(function(k){
                         return fixKey(k)+' { '+ruleText+' }';
                     }).join(' ');
                 }).join(' ');
@@ -113,6 +113,10 @@
         }
 
         return ruleText;
+    }
+
+    function splitKey(key){
+        return (key+'').trim().split(/\s*[\s,]\s*/);
     }
 
     struct.prototype={
@@ -163,7 +167,7 @@
                 }
             }else{
                 ruleText=getKeyframesRule(value);
-                (name+'').trim().split(/\s*[\s,]\s*/).forEach(function(k){
+                splitKey(name).forEach(function(k){
                     this.remove(k);
                     frameRule[insert](fixKey(k)+' { '+ruleText+' }');
                 }.bind(this));
@@ -172,7 +176,10 @@
             return this.extract();
         },
         remove:function(name){
-            this.keyframesRule.deleteRule(fixKey(name));
+            var frameRule=this.keyframesRule;
+            splitKey(name).forEach(function(k){
+                frameRule.deleteRule(fixKey(k));
+            });
             return this.extract();
         },
         clear:function(){
