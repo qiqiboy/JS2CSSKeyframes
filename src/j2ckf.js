@@ -155,7 +155,7 @@
             return this;
         },
         get:function(name){
-            return this.keyframes[fixKey(name)];
+            return this.keyframes[fixKey(splitKey(name)[0])];
         },
         add:function(name,value){
             var frameRule=this.keyframesRule,
