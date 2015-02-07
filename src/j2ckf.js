@@ -133,7 +133,7 @@
             }
 
             if(!name){
-                name='css3Ani_'+parseInt(Math.random()*1e10);
+                name='js2keyframes-'+parseInt(Math.random()*1e10);
             }
 
             if(!ckf){
