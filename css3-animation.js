@@ -102,7 +102,8 @@
             '50%':'transform:perspective(400px) translateZ(150px) rotateY(170deg)',
             '60%':'transform:perspective(400px) translateZ(150px) rotateY(190deg)',
             '100%':'transform:perspective(400px) rotateY(360deg)'
-        }
+        },
+        rotate360:['','transform:rotate(360deg)']
     };
 
     "X Y".split(" ").forEach(function(prop){
