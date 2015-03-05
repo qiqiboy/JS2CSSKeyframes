@@ -144,7 +144,7 @@
     
     var delay=100;
     while(delay<10000){
-        styleSheet.insertRule('.delay'+delay+'{ '+vendor+'animation-delay: '+delay+'ms; '+vendor+'animation-fill-mode: backwards }',styleSheet.cssRules.length);
+        styleSheet.insertRule('.delay'+delay+'{ '+vendor+'animation-delay: '+delay+'ms !important; '+vendor+'animation-fill-mode: backwards !important }',styleSheet.cssRules.length);
         delay+=delay<3000?100:1000;
     }
     
