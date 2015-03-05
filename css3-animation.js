@@ -132,6 +132,8 @@
         CONFIG['flyLeft'+prop]=['transform:translateX(-50px);opacity:0',''][call]();
         CONFIG['rotate'+prop]=['transform-origin:50% 50%;transform:rotate(-200deg);opacity:0',''][call]();
         CONFIG['lightSpeed'+prop]=['transform:translateX(100%) skewX(-30deg);opacity:0',''][call]();
+        CONFIG['slideX'+prop]=['width:0','width:100%'];
+        CONFIG['slideY'+prop]=['height:0','height:100%'];
     });
     
     Object.keys(CONFIG).forEach(function(name){
