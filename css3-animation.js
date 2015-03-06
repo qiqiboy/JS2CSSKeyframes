@@ -135,8 +135,8 @@
         CONFIG['flyLeft'+prop]=[out+'transform:translateX(-50px)',''][call]();
         CONFIG['rotate'+prop]=[out+'transform-origin:50% 50%;transform:rotate(-200deg)',''][call]();
         CONFIG['lightSpeed'+prop]=[out+'transform:translateX(100%) skewX(-30deg)',''][call]();
-        CONFIG['slideX'+prop]=[out+'width:0',''][call]();
-        CONFIG['slideY'+prop]=[out+'height:0',''][call]();
+        CONFIG['slideX'+prop]=[out+'width:0;overflow:hidden','overflow:hidden'][call]();
+        CONFIG['slideY'+prop]=[out+'height:0;overflow:hidden','overflow:hidden'][call]();
     });
     
     Object.keys(CONFIG).forEach(function(name){
