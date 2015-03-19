@@ -123,6 +123,7 @@
         constructor:struct,
         init:function(name, keys){
             var ckf; //CSSKeyframes
+            if(!struct.support)return this;
             if(typeof name=='object' || KEY_REG.test(name)){
                 if(name.cssRules && name.type==KEYFRAMES_RULE){
                     ckf=name;
