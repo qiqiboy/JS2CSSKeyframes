@@ -241,9 +241,9 @@
 
     ROOT.JS2CSSKeyframes=struct;
     
-})(window, function(name, keys){
-    if(!(this instanceof arguments.callee)){
-        return new arguments.callee(name, keys);
+})(window, function self(name, keys){
+    if(!(this instanceof self)){
+        return new self(name, keys);
     }
     this.init(name, keys);
 });
