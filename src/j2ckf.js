@@ -192,7 +192,8 @@
     }
 
             
-    var extend={
+    var anim=fixCSS3('animation'),
+        extend={
         vendor:cssVendor,
         get:function(name){
             return this.CSSKeyframes[name];
@@ -207,12 +208,19 @@
             });
             return true;
         },
-        animation:camelCase(fixCSS3('animation')),
-        support:camelCase(fixCSS3('animation')) in divstyle
+        'animation-css':anim,
+        animation:camelCase(anim),
+        support:camelCase(anim) in divstyle
     }
 
     if(typeof Object.defineProperties=='function'){
         
+        "name duration timing-function delay iteration-count direction play-state fill-mode".split(" ").forEach(function(prop){
+            var name='animation-'+prop,
+                caseName=camelCase(name);
+            struct[caseName]=camelCase(struct[name]=fixCSS3(name));
+        });
+
         Object.keys(extend).forEach(function(name){
             struct[name]=extend[name];
         });
@@ -245,5 +253,5 @@
     if(!(this instanceof arguments.callee)){
         return new arguments.callee(name, keys);
     }
-    this.init(name, keys);
+    arguments.callee.support&&this.init(name, keys);
 });

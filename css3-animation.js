@@ -9,7 +9,7 @@
     if(!JS2CSSKeyframes.support) return; //确保是支持css3动画的浏览器
 
     var styleSheet=document.styleSheets.item(0);
-    var vendor=JS2CSSKeyframes.vendor;
+    var JS2KF=JS2CSSKeyframes;
 
     //生成各类动画
     var css3Ani={};
@@ -140,16 +140,16 @@
     });
     
     Object.keys(CONFIG).forEach(function(name){
-        css3Ani[name]=JS2CSSKeyframes(name,CONFIG[name]);
+        css3Ani[name]=JS2KF(name,CONFIG[name]);
 
         //生成1s ease曲线执行的css类，如 .a-flyTopIn { -webkit-animation: flyTopIn 1s ease }
-        styleSheet.insertRule('.a-'+name+' { '+vendor+'animation: '+name+' 1s ease }',styleSheet.cssRules.length);
+        styleSheet.insertRule('.a-'+name+' { '+JS2KF['aniamtion-css']+': '+name+' 1s ease }',styleSheet.cssRules.length);
     });
 
     
     var delay=100;
     while(delay<10000){
-        styleSheet.insertRule('.delay'+delay+'{ '+vendor+'animation-delay: '+delay+'ms !important; '+vendor+'animation-fill-mode: backwards !important }',styleSheet.cssRules.length);
+        styleSheet.insertRule('.delay'+delay+'{ '+JS2KF['animation-delay']+': '+delay+'ms !important; '+JS2KF['animation-fill-mode']+': backwards !important }',styleSheet.cssRules.length);
         delay+=delay<3000?100:1000;
     }
     
