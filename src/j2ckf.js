@@ -228,7 +228,7 @@
         "name cssText cssRules".split(" ").forEach(function(prop){
             Object.defineProperty(struct.prototype,prop,{
                 get:function(){
-                    return this.keyframesRule[prop];
+                    return (this.keyframesRule||{})[prop];
                 },
                 enumerable:true
             });
