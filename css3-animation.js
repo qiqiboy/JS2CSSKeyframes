@@ -143,13 +143,13 @@
         css3Ani[name]=JS2KF(name,CONFIG[name]);
 
         //生成1s ease曲线执行的css类，如 .a-flyTopIn { -webkit-animation: flyTopIn 1s ease }
-        styleSheet.insertRule('.a-'+name+' { '+JS2KF['animation-css']+': '+name+' 1s ease }',styleSheet.cssRules.length);
+        styleSheet.insertRule('.a-'+name+' { '+JS2KF['animation-css']+': '+name+' 1s ease both }',styleSheet.cssRules.length);
     });
 
     
     var delay=100;
     while(delay<10000){
-        styleSheet.insertRule('.delay'+delay+'{ '+JS2KF['animation-delay']+': '+delay+'ms !important; '+JS2KF['animation-fill-mode']+': backwards !important }',styleSheet.cssRules.length);
+        styleSheet.insertRule('.delay'+delay+'{ '+JS2KF['animation-delay']+': '+delay+'ms !important; '+JS2KF['animation-fill-mode']+': both !important }',styleSheet.cssRules.length);
         delay+=delay<3000?100:1000;
     }
     
