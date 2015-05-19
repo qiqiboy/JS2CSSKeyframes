@@ -123,7 +123,7 @@
     });
 
     "In Out ".split(" ").forEach(function(prop,i){
-        var call=i?'reverse':'slice',
+        var call=i%2?'reverse':'slice',
             out=prop?'opacity:0;':'';
         prop && (CONFIG['fade'+prop]=['opacity:0',''][call]());
         CONFIG['roll'+prop]=[out+'transform:translateX(-100px) rotate(-120deg)',''][call]();
@@ -143,7 +143,7 @@
         css3Ani[name]=JS2KF(name,CONFIG[name]);
 
         //生成1s ease曲线执行的css类，如 .a-flyTopIn { -webkit-animation: flyTopIn 1s ease }
-        styleSheet.insertRule('.a-'+name+' { '+JS2KF['aniamtion-css']+': '+name+' 1s ease }',styleSheet.cssRules.length);
+        styleSheet.insertRule('.a-'+name+' { '+JS2KF['animation-css']+': '+name+' 1s ease }',styleSheet.cssRules.length);
     });
 
     
