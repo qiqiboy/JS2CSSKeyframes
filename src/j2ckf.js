@@ -13,11 +13,6 @@
         MEDIA_RULE=CSSRule.MEDIA_RULE,
         KEYFRAMES_RULE=CSSRule.KEYFRAMES_RULE||CSSRule.WEBKIT_KEYFRAMES_RULE||CSSRule.MOZ_KEYFRAMES_RULE||CSSRule.O_KEYFRAMES_RULE,
         divstyle=document.documentElement.style,
-        camelCase=function(str){
-            return (str+'').replace(/^-ms-/, 'ms-').replace(/-([a-z]|[0-9])/ig, function(all, letter){
-                return (letter+'').toUpperCase();
-            });
-        },
         cssVendor=function(){
             var tests="-webkit- -moz- -o- -ms-".split(" "),
                 prop;
@@ -28,7 +23,9 @@
             }
             return '';
         }(),
-        KEY_REG=new RegExp('@(?:'+cssVendor+')?keyframes','i');
+        KEY_REG=new RegExp('@(?:'+cssVendor+')?keyframes','i'),
+        animation=fixCSS3('animation'),
+        keyframes='@'+animation.replace('animation','keyframes');
 
     function getSheet(){ //获取可以用的样式以用来插入css3 keyframes
         var n=0,
@@ -45,6 +42,12 @@
         doc.getElementsByTagName('head')[0].appendChild(style);
         
         return style.sheet;
+    }
+
+    function camelCase(str){
+        return (str+'').replace(/^-ms-/, 'ms-').replace(/-([a-z]|[0-9])/ig, function(all, letter){
+            return (letter+'').toUpperCase();
+        });
     }
 
     function iterateSheet(callback){
@@ -75,7 +78,7 @@
         var cssText="";
         if(typeof keys=='string'){
             if(KEY_REG.test(keys)){
-                return keys;
+                return keys.replace(KEY_REG,keyframes);
             }
             cssText=keys.replace(/^\s*{\s*(?={)|}\s*(?=}\s*$)/gi,'');
         }else if(Array.isArray(keys)){
@@ -91,7 +94,7 @@
                 }).join(' ');
         }
 
-        return '@'+cssVendor+'keyframes '+name+' { '+cssText+' }';
+        return keyframes+' '+name+' { '+cssText+' }';
     }
 
     function getKeyframesRule(rule,name){
@@ -190,10 +193,8 @@
             return this.extract();
         }
     }
-
             
-    var anim=fixCSS3('animation'),
-        extend={
+    var extend={
         vendor:cssVendor,
         get:function(name){
             return this.CSSKeyframes[name];
@@ -208,9 +209,9 @@
             });
             return true;
         },
-        'animation-css':anim,
-        animation:camelCase(anim),
-        support:camelCase(anim) in divstyle
+        'animation-css':animation,
+        animation:camelCase(animation),
+        support:camelCase(animation) in divstyle
     }
 
     if(typeof Object.defineProperties=='function'){

@@ -114,7 +114,7 @@ var fly=new JS2CSSKeyframes('fly',{
 document.querySelector('#pre1').appendChild(document.createTextNode('\n\nkeyframe内容：\n\n'+fly.cssText));
 
 var ani1;
-document.querySelector('#dot2').style.cssText=JS2CSSKeyframes.vendor+'animation:'+(ani1=JS2CSSKeyframes(['transform:translate(0,0)','transform:translate(100px,0)'])).name+' 1s linear alternate infinite';
+document.querySelector('#dot2').style.cssText=JS2CSSKeyframes['animation-css']+':'+(ani1=JS2CSSKeyframes(['transform:translate(0,0)','transform:translate(100px,0)'])).name+' 1s linear alternate infinite';
 document.querySelector('#pre2').appendChild(document.createTextNode('\n\nkeyframe内容：\n\n'+ani1.cssText));
 
 var ani2,kfs=[],num=100,rand=function(f,t){return Math.random()*t+f}
