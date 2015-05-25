@@ -48,7 +48,7 @@
             '100':'transform:scale(1,1)'
         },
         tada:{
-            '10,20%':'transform:scale(.9) rotate(-3deg)',
+            '10,20':'transform:scale(.9) rotate(-3deg)',
             '30,50,70,90':'transform:scale(1.1) rotate(3deg)',
             '40,60,80':'transform:scale(1.1) rotate(-3deg)',
             '100':'transform:scale(1) rotate(0)'
