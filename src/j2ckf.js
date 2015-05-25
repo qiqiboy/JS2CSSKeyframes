@@ -97,7 +97,7 @@
         return keyframes+' '+name+' { '+cssText+' }';
     }
 
-    function getKeyframesRule(rule,name){
+    function getKeyframesRule(rule){
         var ruleText="";
         if(typeof rule=='string'){
             ruleText=getKeyframesRule(rule.split(/\s*;\s*/g));

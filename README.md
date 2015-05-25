@@ -119,6 +119,14 @@ JS2CSSKeyframes.vendor //String 当前浏览器前缀 -webkit -moz- 或空字符
 
 JS2CSSKeyframes.support //Boolean 是否支持css动画，不支持css3动画的浏览器中调用JS2CSSKeyframes其它方法将会报错
 
+JS2CSSKeyframes["animation-css"] //-webkit-animation
+JS2CSSKeyframes["animation"] //webkitAnimation
+
+JS2CSSKeyframes["animation-timing-function"] //-webkit-animation-timing-function
+JS2CSSKeyframes["animation-timing-function"] //webkitAnimationTimingFunction
+
+...... //同理支持其他animation的子属性
+
 ````
 
 ## css3-animation.js 
