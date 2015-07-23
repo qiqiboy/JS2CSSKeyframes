@@ -3,15 +3,17 @@
  * @github https://github.com/qiqiboy/JS2CSSKeyframes
  */
 ;
-(function(ROOT, undefined){
+(function(ROOT, struct, undefined){
     "use strict";
     
-    if(!JS2CSSKeyframes.support) return; //确保是支持css3动画的浏览器
+    if(typeof define=='function' && define.amd){
+        define(['JS2CSSKeyframes'],struct);
+    }else if(JS2CSSKeyframes.support){
+        ROOT.css3Ani=struct(JS2CSSKeyframes);
+    }
 
+})(window, function(JS2KF){
     var styleSheet=document.styleSheets.item(0);
-    var JS2KF=JS2CSSKeyframes;
-
-    //生成各类动画
     var css3Ani={};
     var CONFIG={
         bounce:{
@@ -154,6 +156,5 @@
         delay+=delay<3000?100:1000;
     }
     
-    ROOT.css3Ani=css3Ani;
-
-})(window);
+    return css3Ani;
+});

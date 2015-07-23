@@ -248,7 +248,11 @@
 
     }
 
-    ROOT.JS2CSSKeyframes=struct;
+    if(typeof define=='function' && define.amd){
+        define('JS2CSSKeyframes',function(){
+            return struct;
+        });
+    }else ROOT.JS2CSSKeyframes=struct;
     
 })(window, function(name, keys){
     if(!(this instanceof arguments.callee)){
