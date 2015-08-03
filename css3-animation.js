@@ -7,7 +7,11 @@
     "use strict";
     
     if(typeof define=='function' && define.amd){
-        define(['JS2CSSKeyframes'],struct);
+        define(['JS2CSSKeyframes'],function(js2ck){
+            if(js2ck.support){
+                return struct;
+            }
+        });
     }else if(JS2CSSKeyframes.support){
         ROOT.css3Ani=struct(JS2CSSKeyframes);
     }
