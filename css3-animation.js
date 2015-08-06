@@ -9,7 +9,7 @@
     if(typeof define=='function' && define.amd){
         define(['JS2CSSKeyframes'],function(js2ck){
             if(js2ck.support){
-                return struct;
+                return struct(js2ck);
             }
         });
     }else if(JS2CSSKeyframes.support){
