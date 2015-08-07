@@ -17,7 +17,7 @@
     }
 
 })(window, function(JS2KF){
-    var styleSheet=document.styleSheets.item(0);
+    var styleSheet=JS2KF.getSheet();
     var css3Ani={};
     var CONFIG={
         bounce:{

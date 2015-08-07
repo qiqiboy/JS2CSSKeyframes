@@ -209,6 +209,7 @@
             });
             return true;
         },
+        getSheet:getSheet,
         'animation-css':animation,
         animation:camelCase(animation),
         support:camelCase(animation) in divstyle
