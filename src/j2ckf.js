@@ -32,9 +32,11 @@
             sheet,
             style;
         while(sheet=doc.styleSheets.item(n++)){
-            if(sheet.cssRules){
-                return sheet;
-            }
+            try{
+                if(sheet.cssRules){
+                    return sheet;
+                }
+            }catch(e){}
         }
 
         style=doc.createElement('style');
