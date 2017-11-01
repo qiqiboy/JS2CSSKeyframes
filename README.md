@@ -18,8 +18,27 @@ JS2CSSKeyframes就是解决这个问题的，它可以自动根据不同浏览�
 * @-moz-keyframes test { from { -moz-transform:translate(0,0) } to { -moz-transform:translate(100px,100px) } }   
 * @keyframes test { from { transform:translate(0,0) } to { transform:translate(100px,100px) } }   
 
+## 安装
+```
+npm install js2css3 --save
+```
 
-## 如何使用
+## 开始使用
+
+有两种情况：
+#### 使用JS2CSSKeyframes创建自定义动画
+```js
+import JS2CSSKeyframes from 'js2css3';
+
+new JS2CSSKeyframes(...);
+```
+
+#### 使用自带的动画插件
+```js
+import 'js2css3/css3-animation';
+```
+
+## 使用示例
 ```javascript
 
 /* @description 创建css3动画

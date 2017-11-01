@@ -6,8 +6,10 @@
 (function(ROOT, struct, undefined){
     "use strict";
     
-    if(typeof define=='function' && define.amd){
-        define(['JS2CSSKeyframes'],function(js2ck){
+    if(typeof module == 'object') {
+        module.exports = struct(require('./src/j2ckf'));
+    }else if(typeof define=='function' && define.amd){
+        require(['./src/j2ckf'],function(js2ck){
             if(js2ck.support){
                 return struct(js2ck);
             }

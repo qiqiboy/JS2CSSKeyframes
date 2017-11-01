@@ -1,0 +1,19 @@
+{
+  "name": "js2css3",
+  "version": "1.0.1",
+  "description": "Create CSS3 keyframes animation from javascript.   使用JS动态创建管理CSS3 Animations。",
+  "main": "src/j2ckf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://qiqiboy@github.com/qiqiboy/JS2CSSKeyframes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qiqiboy/JS2CSSKeyframes/issues"
+  },
+  "homepage": "https://github.com/qiqiboy/JS2CSSKeyframes#readme"
+}
