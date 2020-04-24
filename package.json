@@ -1,6 +1,6 @@
 {
   "name": "js2css3",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create CSS3 keyframes animation from javascript.   使用JS动态创建管理CSS3 Animations。",
   "main": "src/j2ckf.js",
   "scripts": {
